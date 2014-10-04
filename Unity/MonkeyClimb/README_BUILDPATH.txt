@@ -1,1 +1,1 @@
-monkeyclimb/Builds/%PLATFORM%
+monkeyclimb/Builds/%PLATFORM%[/%CPU_ARCHITECTURE%]
