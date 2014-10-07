@@ -16,16 +16,21 @@ public class HealthController : MonoBehaviour
 	/// </summary>
 	public bool isEnemy = true;
 	
+	//---------------------------------------------------------------------------------------------------------------------------
+
 	/// <summary>
 	/// Inflicts damage and check if the object should be destroyed
 	/// </summary>
 	/// <param name="damageCount"></param>
 	public void Damage(int damageCount)
 	{
-		hp -= damageCount;
-		if (this.hp <= 0)
+		if(this.gameObject != null)
 		{
-			Destroy(gameObject);
+			this.hp -= damageCount;
+			if(this.hp <= 0)
+			{
+				Destroy(this.gameObject);
+			}
 		}
 	}
 	
