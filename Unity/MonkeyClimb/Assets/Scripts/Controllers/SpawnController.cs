@@ -3,58 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class SpawnController : MonoBehaviour
+namespace Controllers
 {
-	/// <summary>
-	/// The prefab to spawn.
-	/// </summary>
-	public Transform spawnPrefab;
-
-	/// <summary>
-	/// The spawn rate in seconds.
-	/// </summary>
-	public int spawnRate = 3;
-
-	/// <summary>
-	/// Max amount of alive objects.
-	/// </summary>
-	public int maxCount = 1;
-
-	//----------------------------------------------------------------------------
-
-	private List<Transform> spawnedObjects;
-
-	void Start()
+	public class SpawnController : MonoBehaviour
 	{
-		this.spawnedObjects = new List<Transform>();
-		StartCoroutine(this.Spawner());
-	}
+		/// <summary>
+		/// The prefab to spawn.
+		/// </summary>
+		public Transform spawnPrefab;
 
-	private IEnumerator Spawner()
-	{
-		while(true)
+		/// <summary>
+		/// The spawn rate in seconds.
+		/// </summary>
+		public int spawnRate = 3;
+
+		/// <summary>
+		/// Max amount of alive objects.
+		/// </summary>
+		public int maxCount = 1;
+
+		//----------------------------------------------------------------------------
+
+		private List<Transform> spawnedObjects;
+
+		void Start()
 		{
-			if(this.enabled)
+			this.spawnedObjects = new List<Transform>();
+			StartCoroutine(this.Spawner());
+		}
+
+		private IEnumerator Spawner()
+		{
+			while(true)
 			{
-				this.Spawn();
-				yield return new WaitForSeconds(this.spawnRate);
-			}
-			else
-			{
-				yield break;
+				if(this.enabled)
+				{
+					this.Spawn();
+					yield return new WaitForSeconds(this.spawnRate);
+				}
+				else
+				{
+					yield break;
+				}
 			}
 		}
-	}
-	
-	private void Spawn()
-	{
-		this.spawnedObjects.RemoveAll(item => item == null);
-		if(this.spawnedObjects.Count < this.maxCount)
+		
+		private void Spawn()
 		{
-			var spawnedTransform = Instantiate(this.spawnPrefab) as Transform;
-			spawnedTransform.position = this.transform.position;
+			this.spawnedObjects.RemoveAll(item => item == null);
+			if(this.spawnedObjects.Count < this.maxCount)
+			{
+				var spawnedTransform = Instantiate(this.spawnPrefab) as Transform;
+				spawnedTransform.position = this.transform.position;
 
-			this.spawnedObjects.Add(spawnedTransform);
+				this.spawnedObjects.Add(spawnedTransform);
+			}
 		}
 	}
 }

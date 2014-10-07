@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\Menus\LevelMenuController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\Menus\MainMenuController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\Menus\StartMenuController.cs" />
      <Compile Include="Assets\Scripts\Controllers\SpawnController.cs" />
      <Compile Include="Assets\Scripts\Extensions\RenderExtensions.cs" />
      <Compile Include="Assets\Scripts\FontScaler.cs" />
