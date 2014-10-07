@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
      <Compile Include="Assets\Scripts\Controllers\SpawnController.cs" />
      <Compile Include="Assets\Scripts\Extensions\RenderExtensions.cs" />
+     <Compile Include="Assets\Scripts\FontScaler.cs" />
      <Compile Include="Assets\Scripts\ScrollingScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
