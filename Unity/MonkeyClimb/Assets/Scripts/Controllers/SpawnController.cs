@@ -20,13 +20,13 @@ public class SpawnController : MonoBehaviour
 	/// </summary>
 	public int maxCount = 1;
 
-	//---------------------------------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 
-	private List<Transform> spawnObjects;
+	private List<Transform> spawnedObjects;
 
 	void Start()
 	{
-		this.spawnObjects = new List<Transform>();
+		this.spawnedObjects = new List<Transform>();
 		StartCoroutine(this.Spawner());
 	}
 
@@ -45,15 +45,16 @@ public class SpawnController : MonoBehaviour
 			}
 		}
 	}
-
+	
 	private void Spawn()
 	{
-		this.spawnObjects.RemoveAll(item => item == null);
-		if(this.spawnObjects.Count < this.maxCount)
+		this.spawnedObjects.RemoveAll(item => item == null);
+		if(this.spawnedObjects.Count < this.maxCount)
 		{
-			var spawnTransform = Instantiate (this.spawnPrefab) as Transform;
-			spawnTransform.position = transform.position;
-			this.spawnObjects.Add(spawnTransform);
+			var spawnedTransform = Instantiate(this.spawnPrefab) as Transform;
+			spawnedTransform.position = this.transform.position;
+
+			this.spawnedObjects.Add(spawnedTransform);
 		}
 	}
 }

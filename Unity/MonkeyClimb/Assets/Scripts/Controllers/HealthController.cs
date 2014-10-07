@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour
 	/// </summary>
 	public bool isEnemy = true;
 	
-	//---------------------------------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 
 	/// <summary>
 	/// Inflicts damage and check if the object should be destroyed
