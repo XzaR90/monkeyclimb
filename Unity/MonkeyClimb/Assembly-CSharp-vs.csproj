@@ -50,7 +50,7 @@
      <Compile Include="Assets\Scripts\Controllers\SpawnController.cs" />
      <Compile Include="Assets\Scripts\Extensions\RenderExtensions.cs" />
      <Compile Include="Assets\Scripts\FontScaler.cs" />
-     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
+     <Compile Include="Assets\Scripts\LayerScroller.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
