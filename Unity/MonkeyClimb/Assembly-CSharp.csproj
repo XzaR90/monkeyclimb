@@ -54,6 +54,8 @@
      <Compile Include="Assets\Scripts\Extensions\RenderExtensions.cs" />
      <Compile Include="Assets\Scripts\FontScaler.cs" />
      <Compile Include="Assets\Scripts\LayerScroller.cs" />
+     <Compile Include="Assets\Scripts\Utilities\DelayedExecution.cs" />
+     <Compile Include="Assets\Scripts\Utilities\GUIScale.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

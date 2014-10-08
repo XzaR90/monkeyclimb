@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace MenuControllers
+namespace Controllers.Menus
 {
 	public class LevelMenuController : MonoBehaviour {
 

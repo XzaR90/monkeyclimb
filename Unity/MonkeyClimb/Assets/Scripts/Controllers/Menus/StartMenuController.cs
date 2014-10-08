@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace MenuControllers
+namespace Controllers.Menus
 {
 	public class StartMenuController : MonoBehaviour {
 
@@ -9,7 +9,11 @@ namespace MenuControllers
 		void Start () {
 		
 		}
-		
+
+		void OnGUI()
+		{
+			//Utilities.GUIScale.AutoResize(1920, 1200);
+		}
 
 		void Update () {
 

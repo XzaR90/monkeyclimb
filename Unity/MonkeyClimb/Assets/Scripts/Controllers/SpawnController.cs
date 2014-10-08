@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Utilities;
 
 namespace Controllers
 {
@@ -15,7 +16,7 @@ namespace Controllers
 		/// <summary>
 		/// The spawn rate in seconds.
 		/// </summary>
-		public int spawnRate = 3;
+		public float spawnRate = 3f;
 
 		/// <summary>
 		/// Max amount of alive objects.
@@ -24,28 +25,26 @@ namespace Controllers
 
 		//----------------------------------------------------------------------------
 
+		public DelayedExecution.WaitController spawner;
 		private List<Transform> spawnedObjects;
 
 		void Start()
 		{
+			spawner = this.gameObject.DoSomethingLater(this.Spawn,this.spawnRate);
 			this.spawnedObjects = new List<Transform>();
-			StartCoroutine(this.Spawner());
 		}
 
-		private IEnumerator Spawner()
+		void Update()
 		{
-			while(true)
+			
+			bool pause = false;
+			pause |= Input.GetButtonDown("Pause");
+			
+			if(pause)
 			{
-				if(this.enabled)
-				{
-					this.Spawn();
-					yield return new WaitForSeconds(this.spawnRate);
-				}
-				else
-				{
-					yield break;
-				}
+				this.spawner.pause = !spawner.pause;
 			}
+
 		}
 		
 		private void Spawn()
@@ -58,6 +57,8 @@ namespace Controllers
 
 				this.spawnedObjects.Add(spawnedTransform);
 			}
+
+			spawner = this.gameObject.DoSomethingLater(this.Spawn,this.spawnRate);
 		}
 	}
 }
