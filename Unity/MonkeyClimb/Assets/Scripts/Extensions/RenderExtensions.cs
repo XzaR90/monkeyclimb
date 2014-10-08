@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class RendererExtensions
+namespace Extensions
 {
-	public static bool IsVisibleFrom(this Renderer renderer, Camera camera)
+	public static class RendererExtensions
 	{
-		Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
-		return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+		public static bool IsVisibleFrom(this Renderer renderer, Camera camera)
+		{
+			Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+			return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+		}
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Extensions;
 
 /// <summary>
 /// Parallax scrolling script that should be assigned to a layer
